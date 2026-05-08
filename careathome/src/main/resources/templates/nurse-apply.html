@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nurse Apply</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h2>Nurse Application</h2>
+      <a href="/">Home</a>
+    </div>
+
+    <div class="container">
+      <div class="card form-card">
+        <h2>Apply for Part Time Nurse</h2>
+
+        <form action="/nurse-apply" method="post">
+          <input type="text" name="name" placeholder="Full Name" required />
+
+          <input
+            type="text"
+            name="degree"
+            placeholder="Degree e.g. GNM / BSc Nursing"
+            required
+          />
+
+          <input
+            type="text"
+            name="experience"
+            placeholder="Experience Years e.g. 2 Years"
+            required
+          />
+
+          <input
+            type="text"
+            name="certificateLink"
+            placeholder="Certificate Link"
+            required
+          />
+
+          <select name="availabilitySlot" required>
+            <option value="">Select Free Time</option>
+            <option value="4-6 PM">4-6 PM</option>
+            <option value="6-8 PM">6-8 PM</option>
+            <option value="8-10 PM">8-10 PM</option>
+            <option value="Full Day">Full Day</option>
+          </select>
+
+          <button type="submit">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

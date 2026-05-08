@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2>Book Nurse</h2>
+
+        <form action="/book" method="post">
+          <input type="text" name="patientName" placeholder="Patient Name" />
+
+          <input type="number" name="age" placeholder="Age" />
+
+          <input type="text" name="address" placeholder="Address" />
+
+          <select name="service">
+            <option>Injection</option>
+            <option>Dressing</option>
+            <option>ICU Care</option>
+            <option>Chemotherapy</option>
+          </select>
+
+          <button class="btn">Book Now</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

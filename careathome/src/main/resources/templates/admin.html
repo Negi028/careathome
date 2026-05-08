@@ -1,0 +1,104 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h2>CareAtHome Admin</h2>
+      <div>
+        <a href="/">Home</a>
+        <a href="/admin-logout">Logout</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="dashboard-grid">
+        <div class="stat-card">
+          <h3>Total Appointments</h3>
+          <p th:text="${appointments.size()}"></p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total Nurses</h3>
+          <p th:text="${nurses.size()}"></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Appointments</h2>
+
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Service</th>
+            <th>Address</th>
+            <th>Nurse</th>
+            <th>Status</th>
+            <th>Cost</th>
+            <th>Action</th>
+          </tr>
+
+          <tr th:each="a : ${appointments}">
+            <td th:text="${a.id}"></td>
+            <td th:text="${a.patientName}"></td>
+            <td th:text="${a.service}"></td>
+            <td th:text="${a.address}"></td>
+            <td th:text="${a.assignedNurse}"></td>
+            <td th:text="${a.status}"></td>
+            <td th:text="${a.cost}"></td>
+            <td>
+              <a class="action-btn done" th:href="@{'/complete?id=' + ${a.id}}"
+                >Complete</a
+              >
+              <a class="action-btn delete" th:href="@{'/delete?id=' + ${a.id}}"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Nurse Applications</h2>
+
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Experience</th>
+            <th>Certificate</th>
+            <th>Free Time</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+
+          <tr th:each="n : ${nurses}">
+            <td th:text="${n.id}"></td>
+            <td th:text="${n.name}"></td>
+            <td th:text="${n.degree}"></td>
+            <td th:text="${n.experience}"></td>
+            <td>
+              <a th:href="${n.certificateLink}" target="_blank">View</a>
+            </td>
+            <td th:text="${n.availabilitySlot}"></td>
+            <td th:text="${n.status}"></td>
+            <td>
+              <a
+                class="action-btn done"
+                th:if="${n.status == 'PENDING'}"
+                th:href="@{'/approve-nurse?id=' + ${n.id}}"
+                >Approve</a
+              >
+
+              <span th:if="${n.status == 'APPROVED'}">Approved</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

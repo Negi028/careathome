@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <div class="form-container">
+      <form action="/book" method="post">
+        <input type="text" name="patientName" placeholder="Name" required />
+
+        <input type="text" name="age" placeholder="Age" required />
+
+        <input type="text" name="address" placeholder="Address" required />
+
+        <select name="service" required>
+          <option>Injection</option>
+          <option>Dressing</option>
+          <option>Chemotherapy</option>
+          <option>ICU Care</option>
+        </select>
+
+        <button type="submit">Book Nurse</button>
+      </form>
+    </div>
+  </body>
+</html>
